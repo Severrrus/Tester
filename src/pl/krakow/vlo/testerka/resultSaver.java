@@ -10,5 +10,5 @@ package pl.krakow.vlo.testerka;
  */
 public class resultSaver 
 {
-
+	
 }
