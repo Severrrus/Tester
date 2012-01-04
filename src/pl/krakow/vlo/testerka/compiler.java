@@ -21,6 +21,16 @@ public class compiler
 	public File compile(File what)
 	{
 		File output = new File(what.getParentFile(), "out");
+		File[] toCompile = root.listFles(new FilenameFilter()
+		{
+			public boolean accept(File dir, String name)
+			{
+				return name.endsWith(".cpp");
+			}
+		});
+		if(toCompile.length > 1)
+			throw new IllegalStateException(
+					"Dwa lub wiecej plikow");
 		try
 		{
 			Runtime.getRuntime().exec(getCompilerCommand() + " "
